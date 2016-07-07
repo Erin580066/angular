@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<!--angular有哪些特性：
+		mvc模式
+		模块系统
+		指令系统
+		依赖注入
+		双向数据绑定
+	-->
+	<div ng-controller="Aaa">
+		<p>{{name}}</p>
+	</div>
+	<script src="../js/angular.min.js"></script>
+	<script type="text/javascript">
+		function Aaa($scope){
+			$scope.name = 'hello';
+		}
+	</script>
+</body>
+</html>
