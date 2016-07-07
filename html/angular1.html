@@ -1,8 +1,18 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html ng-app>
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title></title>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	function Aaa($scope){
+		$scope.name = 'hello';
+		$scope.age = 20;
+	}
+	function Bbb($scope){
+		$scope.name = 'hi';
+	}
+</script>
 </head>
 <body>
 	<!--angular有哪些特性：
@@ -15,11 +25,9 @@
 	<div ng-controller="Aaa">
 		<p>{{name}}</p>
 	</div>
-	<script src="../js/angular.min.js"></script>
-	<script type="text/javascript">
-		function Aaa($scope){
-			$scope.name = 'hello';
-		}
-	</script>
+	<div ng-controller="Bbb">
+		<p>{{name}}</p>
+	</div>
+	
 </body>
 </html>
