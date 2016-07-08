@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>模拟购物车</title>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	function Aaa($scope){
+		$scope.iphone = {
+			price:25,
+			num:2,
+			freight:10
+		};
+		
+		$scope.sum = function(){
+			return $scope.iphone.price * $scope.iphone.num;
+		};
+		
+		$scope.$watch($scope.sum,function(newVal,oldVal){
+		$scope.iphone.freight = newVal >= 100 ? 0 : 10;
+		
+	});
+	}
+</script>
+</head>
+<body>
+	<div ng-controller="Aaa">
+		<p>价格:<input type="text" ng-model="iphone.price"></p>
+	    <p>个数:<input type="text" ng-model="iphone.num"></p>
+	    <p>费用:<span>{{ sum() | currency:'￥' }}</span></p>
+	    <p>运费:<span>{{iphone.freight | currency:'￥'}}</span></p>
+	    <p>总额:<span>{{ sum() + iphone.freight | currency:'￥'}}</span></p>
+	</div>
+</body>
+</html>
