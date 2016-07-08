@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<title></title>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+//angular.bind()//  用来改this指向
+//	function show(n1,n2){
+//		alert(n1);//3
+//		alert(n2);//4
+//		alert(this);
+//	}
+//	show();//直接调用this指向window
+//	angular.bind(document,show)(3,4);//第一个参数改this指向 第二是被改的this指向现在this就指向了document
+//	angular.bind(document,show,3,4)()//也可以这样传参数 =》 跟$proxy()的方法差不多
+	
+//	angular.copy()//  用来拷贝对象
+	var a = {
+		name:'hello'
+	};
+	var b ={
+		age:20
+	};
+//	var c = angular.copy(a);
+//	console.log(c);//  Object {name: "hello"}
+	var c1 = angular.copy(b,a);
+	console.log(b)//   Object {age: 20}
+//	var c1 = angular.copy(a,b);
+//	console.log(b);//  Object {name: "hello"} 把a的所有值覆盖给了b
+	
+	var a = {
+		name:'hello'
+	};
+	var b ={
+		age:20
+	};
+	var c = angular.extend(b,a);//b就继承了a
+	console.log(b);//Object {age: 20, name: "hello"}
+	console.log(c);//Object {age: 20, name: "hello"}
+</script>
+</head>
+<body>
+</body>
+</html>
