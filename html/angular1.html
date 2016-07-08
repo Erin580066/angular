@@ -5,12 +5,14 @@
 <title></title>
 <script src="../js/angular.min.js"></script>
 <script type="text/javascript">
-	function Aaa($scope){
+	function Aaa($scope,$rootScope){//$rootScope相当于源生js中全局变量
 		$scope.name = 'hello';
-		$scope.age = 20;
+//		$scope.age = '40';
+		$rootScope.age = 20;
 	}
 	function Bbb($scope){
 		$scope.name = 'hi';
+//		$scope.age = '30';
 	}
 </script>
 </head>
@@ -22,11 +24,20 @@
 		依赖注入
 		双向数据绑定
 	-->
-	<div ng-controller="Aaa">
+	<!--<div ng-controller="Aaa">
 		<p>{{name}}</p>
 	</div>
 	<div ng-controller="Bbb">
 		<p>{{name}}</p>
+		<p>{{age}}</p>
+	</div>-->
+<!--嵌套的情况下-->	
+	<div ng-controller="Aaa">
+		<p>{{name}}</p>
+		<div ng-controller="Bbb">
+			<p>{{name}}</p>
+			<p>{{age}}</p>
+		</div>
 	</div>
 	
 </body>

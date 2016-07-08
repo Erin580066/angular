@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title></title>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	function Aaa($scope,$timeout){
+		$scope.name = 'hello';
+//		$timeout(function(){
+//			$scope.name = 'yes';
+//		},2000);
+//		$scope.show = function(){
+//			$scope.name = 'yes';
+//		}
+	}
+	
+</script>
+</head>
+<body>
+	<!--<div ng-controller="Aaa" ng-click="name='yes'">-->
+	<!--<div ng-controller="Aaa" ng-click="show()">-->
+	<div ng-controller="Aaa" >
+		<input type="text" ng-model="name" /><!--双向数据绑定-->
+		<p>{{name}}</p>
+	</div>
+</body>
+</html>
