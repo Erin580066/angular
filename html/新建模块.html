@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<title></title>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	var m1 = angular.module('myApp',[]);//模块后有两个参数：1、自己的model 2依赖其他的模块，如果没有就写个空数组[]
+//	m1.controller('Aaa',function($scope){
+//		$scope.name = "hello";
+//	});
+//	m1.controller('Bbb',function($scope){
+//		$scope.name = "yes";
+//	})
+//	上面代码有一个缺陷就是压缩工具压缩的时候会把参数压缩例如:$s,
+//	这时局部变量就会被压缩没了,解决办法是用下面的方法
+	m1.controller('Aaa',['$scope',function($s){
+		$s.name = "hello";
+	}]);
+	m1.controller('Bbb',['$scope',function($s){
+		$s.name = "yes";
+	}]);
+</script>
+</head>
+<body>
+	<div ng-controller="Aaa">
+		<p>{{name}}</p>
+	</div>
+	<div ng-controller="Bbb">
+		<p>{{name}}</p>
+	</div>
+</body>
+</html>
