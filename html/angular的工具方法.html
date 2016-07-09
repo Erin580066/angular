@@ -5,7 +5,7 @@
 <title></title>
 <script src="../js/angular.min.js"></script>
 <script type="text/javascript">
-//angular.bind()//  用来改this指向
+//	1： angular.bind()//  用来改this指向
 //	function show(n1,n2){
 //		alert(n1);//3
 //		alert(n2);//4
@@ -15,31 +15,63 @@
 //	angular.bind(document,show)(3,4);//第一个参数改this指向 第二是被改的this指向现在this就指向了document
 //	angular.bind(document,show,3,4)()//也可以这样传参数 =》 跟$proxy()的方法差不多
 	
-//	angular.copy()//  用来拷贝对象
-	var a = {
-		name:'hello'
-	};
-	var b ={
-		age:20
-	};
+//  2：angular.copy()//  用来拷贝对象
+//	var a = {
+//		name:'hello'
+//	};
+//	var b ={
+//		age:20
+//	};
 //	var c = angular.copy(a);
 //	console.log(c);//  Object {name: "hello"}
-	var c1 = angular.copy(b,a);
-	console.log(b)//   Object {age: 20}
+//	var c1 = angular.copy(b,a);
+//	console.log(b)//   Object {age: 20}
 //	var c1 = angular.copy(a,b);
 //	console.log(b);//  Object {name: "hello"} 把a的所有值覆盖给了b
-	
-	var a = {
-		name:'hello'
-	};
-	var b ={
-		age:20
-	};
-	var c = angular.extend(b,a);//b就继承了a
-	console.log(b);//Object {age: 20, name: "hello"}
-	console.log(c);//Object {age: 20, name: "hello"}
+
+//	3：angular.extend()//用来继承对象
+//	var a = {
+//		name:'hello'
+//	};
+//	var b ={
+//		age:20
+//	};
+//	var c = angular.extend(b,a);//b就继承了a
+//	console.log(b);//Object {age: 20, name: "hello"}；
+//	console.log(c);//Object {age: 20, name: "hello"};
+//4:angular.isArray()=>判断是否是是数组
+//	var a = [];
+//	console.log(angular.isArray(a))//true
+//	console.log(angular.version)
+// 5:angular.equals() =>判断两个元素是否相等	
+//	var a = 1;
+//	var b = 1;
+//	console.log(angular.equals(a,b))//true
+// 6:angular.forEach() =>遍历
+//	var values = ['a','b','c'];
+//	var values = {name:'hello',age:30}
+//	var result = [];
+//	angular.forEach(values,function(value,i){
+//		console.log(value);
+//		console.log(i);
+//		this.push(value+i)
+//	},result)
+//  7:angular.fromJson/toJson
+//	var str = {'name':'hello','age':'30'}
+//	var str = '{"name":"hello","age":"30"}';
+//	console.log(angular.fromJson(str))
+	var json = {"name":"hello","age":"30"};
+//	var str = angular.toJson(json);
+	var str = angular.toJson(json,true);
+	console.log(str)
 </script>
 </head>
 <body>
+	<script src="../js/jquery-1.11.1.js"></script>
+	<script>
+//		console.log(angular.isElement(document.body))//true
+//		console.log(angular.isElement($(document.body)))//true
+//		console.log(angular.version)
+	</script>
 </body>
 </html>
