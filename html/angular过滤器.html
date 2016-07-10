@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<title></title>
+<script src="../js/angular.min.js"></script>
+<script>
+	var m1 = angular.module('myApp',[])
+//	m1.controller('Aaa',['$scope',function($scope){
+	m1.filter('firstUpp',function(){
+		return function(str){
+//			console.log(str);
+			return str.charAt(0).toUpperCase() + str.substring(1);
+		}
+	})
+	m1.controller('Aaa',['$scope','$filter',function($scope,$filter){
+//		$scope.name = '38986782647256';
+//		$scope.name = 'hello';
+//		$scope.name = {"name":"hello","age":'20'};
+//		$scope.name = 'hello';
+//		$scope.name = ["a","b","c"]
+//		$scope.name = "23734897893"
+//		$scope.name = [
+//			{color:'red',age:'50'},
+//			{color:'blue',age:'30'},
+//			{color:'yellow',age:'20'},
+//			{color:'green',age:'10'}
+//		]
+//		组合写法
+//		$scope.name = $filter('uppercase')('hello')
+//		$scope.name = $filter('number')('234467.7785',1)
+//		$scope.name = $filter('date')('2343665443')
+		
+		$scope.name = 'hello';
+	}])
+</script>
+</head>
+<body>
+	<div ng-controller="Aaa">
+		<!--<p>{{name | currency : '￥'}}</p>-->
+		<!--<p>{{name | uppercase}}</p>-->
+		<!--<pre>{{name | json}}</pre>-->
+		<!--<p>{{name | limitTo:2}}</p>-->
+		<!--<p>{{name | date : 'fullDate'}}</p>-->
+		<!--<p>{{name | orderBy:'age':true}}</p>-->
+		<!--<p>{{name | filter : 'red'}}</p>-->
+		<!--<p>{{name | filter : 'blue' : true}}</p>-->
+		<!--<p>{{name}}</p>-->
+		<p>{{name | firstUpp}}</p>
+	</div>
+</body>
+</html>

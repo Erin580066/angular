@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app='myApp'>
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<title></title>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	var m1 = angular.module('myApp',[]);
+//	m1.run(['$rootScope',function($rootScope){
+//		$rootScope.name = 'hello';
+//	}]);
+//	*********只能是全局的$rootScope,局部的$scope是不起作用的
+	m1.run(['$Scope',function($Scope){
+		$Scope.name = 'hello';
+	}]);
+	
+	
+</script>
+</head>
+<body>
+	<div>
+		<p>{{name}}</p>
+	</div>
+</body>
+</html>

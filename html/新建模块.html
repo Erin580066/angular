@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html>
+<!--<html ng-app="myApp">-->
 <head>
 <meta http-equiv="content-type" content="text/html" charset="utf-8">
 <title></title>
 <script src="../js/angular.min.js"></script>
 <script type="text/javascript">
-	var m1 = angular.module('myApp',[]);//模块后有两个参数：1、自己的model 2依赖其他的模块，如果没有就写个空数组[]
+	var m1 = angular.module('myApp1',[]);//模块后有两个参数：1、自己的model 2依赖其他的模块，如果没有就写个空数组[]
+	var m2 = angular.module('myApp2',[]);
 //	m1.controller('Aaa',function($scope){
 //		$scope.name = "hello";
 //	});
@@ -17,9 +19,23 @@
 	m1.controller('Aaa',['$scope',function($s){
 		$s.name = "hello";
 	}]);
-	m1.controller('Bbb',['$scope',function($s){
+//	m1.controller('Bbb',['$scope',function($s){
+//		$s.name = "yes";
+//	}]);
+	m2.controller('Bbb',['$scope',function($s){
 		$s.name = "yes";
 	}]);
+//	动态初始化   <html ng-app="myApp">里的ng-app="myApp"可以不写,想要初始化的时候再写出来
+
+//	document.onclick = function(){
+//		angular.bootstrap(document,['myApp']);
+//	}
+//	想进行多个模块的初始化可以以下方式写
+	var oDiv = document.getElementsByTagName('div');
+	document.onclick = function(){
+		angular.bootstrap(oDiv[0],['myApp1']);
+		angular.bootstrap(oDiv[1],['myApp2']);
+	}
 </script>
 </head>
 <body>

@@ -39,14 +39,17 @@
 //	var c = angular.extend(b,a);//b就继承了a
 //	console.log(b);//Object {age: 20, name: "hello"}；
 //	console.log(c);//Object {age: 20, name: "hello"};
-//4:angular.isArray()=>判断是否是是数组
+
+// 4:angular.isArray()=>判断是否是是数组
 //	var a = [];
 //	console.log(angular.isArray(a))//true
 //	console.log(angular.version)
+
 // 5:angular.equals() =>判断两个元素是否相等	
 //	var a = 1;
 //	var b = 1;
 //	console.log(angular.equals(a,b))//true
+
 // 6:angular.forEach() =>遍历
 //	var values = ['a','b','c'];
 //	var values = {name:'hello',age:30}
@@ -56,19 +59,31 @@
 //		console.log(i);
 //		this.push(value+i)
 //	},result)
+
 //  7:angular.fromJson/toJson
 //	var str = {'name':'hello','age':'30'}
 //	var str = '{"name":"hello","age":"30"}';
 //	console.log(angular.fromJson(str))
-	var json = {"name":"hello","age":"30"};
-//	var str = angular.toJson(json);
-	var str = angular.toJson(json,true);
-	console.log(str)
+//	var json = {"name":"hello","age":"30"};
+////	var str = angular.toJson(json);
+//	var str = angular.toJson(json,true);
+//	console.log(str)
+
+//  8:angualr.lowerCase/upperCase()=>  区分大小写
+	var str = 'hello';
+	var str1 = 'HELLO';
+	console.log(angular.uppercase(str));//HELLO
+	console.log(angular.lowercase(str1));//hello
+// 9:angular.element() =>	类似于jqury的方法如$('div').css('background','red')
+	
 </script>
 </head>
 <body>
+	<div id="box">我是元素</div>
 	<script src="../js/jquery-1.11.1.js"></script>
 	<script>
+		var oDiv = document.getElementById("box");
+		angular.element(oDiv).css('background','red')
 //		console.log(angular.isElement(document.body))//true
 //		console.log(angular.isElement($(document.body)))//true
 //		console.log(angular.version)
