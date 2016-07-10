@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	var m1 = angular.module('myApp',[]);
+	m1.controller('Aaa',['$scope','$filter',function($scope,$filter){
+//		$scope.datalist = [
+//			'aaaa','bbbb','cccc'
+//		]
+		var oldArr = [
+			{name:'momo',age:'30'},
+			{name:'bobo',age:'50'},
+			{name:'popo',age:'20'},
+			{name:'wowo',age:'40'}
+		];
+		$scope.datalist = oldArr;
+		$scope.fnSort = function(arg){
+			arguments.callee['fnSort'+arg] = !arguments.callee['fnSort'+arg]
+			$scope.datalist = $filter('orderBy')($scope.datalist,arg,arguments.callee['fnSort'+arg])
+		}
+		$scope.fnSearch = function(){
+			$scope.datalist = $filter('filter')(oldArr,$scope.searchVal)
+		}
+	}])
+</script>
+<title></title>
+</head>
+<body>
+	<div ng-controller="Aaa">
+		<input type="text" ng-model="searchVal"/>
+		<input type="button" value="搜索" ng-click="fnSearch()"/>
+		<table border="1" >
+			<tr>
+				<th ng-click="fnSort('name')">姓名</th>
+				<th ng-click="fnSort('age')">年龄</th>
+			</tr>
+			<tr ng-repeat="data in datalist">
+				<td>{{data.name}}</td>
+				<td>{{data.age}}</td>
+			</tr>
+		</table>
+		<ul>
+			<!--<li ng-repeat="data in datalist">{{data}}</li> <!--data就相当数组当中每个值，然后遍历给每一个li-->
+		</ul>
+	</div>
+</body>
+</html>
