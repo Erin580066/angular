@@ -23,6 +23,16 @@
 </script>
 </head>
 <body>
+	<input type="checkbox" ng-model="aaa" />
+	<select name="">
+		<option >1111</option>
+		<option ng-selected="aaa">2222</option>
+		<option >3333</option>
+	</select>
+	<input type="text" ng-change="bbb='hello'" ng-model="bbb"/>{{bbb}}
+	<input type="text" value="sadfsadfadsfsad" ng-copy="ccc=true"/>{{ccc}}
+	<input type="text" value="sadfsadfadsfsad" ng-cut="ccc=true"/>{{ccc}}
+	<input type="text" value="sadfsadfadsfsad" ng-paste="ccc=true"/>{{ccc}}
 	<div ng-controller="Aaa">
 		<ul>
 			<!--<li ng-repeat="data in datalist">{{data}}</li>-->
