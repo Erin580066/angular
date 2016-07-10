@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<title></title>
+<style type="text/css">
+	.active1{
+		background:red;
+	}
+	.active2{
+		background:blue;
+	}
+</style>
+<script src="../js/angular.min.js"></script>
+<script>
+	var m1 = angular.module('myApp',[]);
+	m1.controller('Aaa',['$scope',function($scope){
+		$scope.datalist = [
+			'aaaa','bbbb','cccc','dddd','eeee'
+		]
+		
+	}])
+</script>
+</head>
+<body>
+	<div ng-controller="Aaa">
+		<ul>
+			<!--<li ng-repeat="data in datalist">{{data}}</li>-->
+			<!--<li ng-repeat="data in datalist">{{$index}}</li>
+			<li ng-repeat="data in datalist">{{$first}}</li>
+			<li ng-repeat="data in datalist">{{last}}</li>
+			<li ng-repeat="data in datalist">{{middle}}</li>
+			<li ng-repeat="data in datalist">{{$even}}</li>-->
+			<!--<li ng-repeat="data in datalist">{{$odd}}</li>-->
+			<li class="{{$even?'active1':'active2'}}"ng-repeat="data in datalist">{{data}}</li>
+		</ul>
+		<div ng-repeat-start="data in datalist">{{data}}</div>
+		<p>{{data}}</p>
+		<div ng-repeat-end>{{data}}</div>
+	</div>
+</body>
+</html>
