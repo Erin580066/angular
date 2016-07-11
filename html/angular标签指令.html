@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!--<html >-->
+<html ng-app="myApp">
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<title></title>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	var m1 = angular.module("myApp",[]);
+	m1.controller('Aaa',['$scope',function($scope){
+//		$scope.colors = [
+//			{name:'red'},
+//			{name:'blue'},
+//			{name:'yellow'}
+//		]
+		$scope.text = 'Hello';
+	}])
+</script>
+</head>
+<body>
+	<!--<div ng-app="myApp" ng-controller="Aaa">-->
+		<div ng-controller="Aaa">
+		<!--<a href="">{{mycolor.name}}</a>
+		<select ng-options="color.name for color in colors" ng-model="mycolor">
+		</select>
+		<form novalidate><!-- novalidate阻止默认行为的-->
+			<!--<input type="email" />
+		</form>-->
+		<form novalidate name="myForm">
+			<!--<input type="text" name="myText" ng-model="text"/>-->
+			<input type="email" name="myText" ng-model="text"/>
+			<div>{{myForm.myText.$valid}}</div>
+			<div>{{myForm.myText.$invalid}}</div>
+			<div>{{myForm.myText.$pristine}}</div>
+			<div>{{myForm.myText.$dirty}}</div>
+			<div>{{myForm.myText.$error}}</div>
+		</form>
+	</div>
+	<!--<a href="">bbbbbbb</a>-->
+</body>
+</html>
