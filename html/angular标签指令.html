@@ -27,8 +27,8 @@
 			<!--<input type="email" />
 		</form>-->
 		<form novalidate name="myForm">
-			<!--<input type="text" name="myText" ng-model="text"/>-->
-			<input type="email" name="myText" ng-model="text"/>
+			<input type="text" name="myText" ng-model="text" required ng-minlength="5"/>
+			<!--<input type="email" name="myText" ng-model="text"/>-->
 			<div>{{myForm.myText.$valid}}</div>
 			<div>{{myForm.myText.$invalid}}</div>
 			<div>{{myForm.myText.$pristine}}</div>
