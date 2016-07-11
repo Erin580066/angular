@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+<head>
+<meta http-equiv="content-type" content="text/html" charset="utf-8">
+<title></title>
+<style type="text/css">
+	.red{background:red;}
+</style>
+<script src="../js/angular.min.js"></script>
+<script type="text/javascript">
+	var m1 = angular.module('myApp',[]);
+	m1.controller('Aaa',['$scope',function($scope){
+//		$scope.text = 'hello';
+//		$scope.style ="{color:'red',background:'yellow'}";
+//		$scope.surl ="www.baidu.com"
+//		$scope.btn = true;
+//		$scope.arr = [['a','b'],['c','d']]
+		$scope.text = 'hello';
+	}])
+</script>
+</head>
+<body>
+	<div ng-controller="Aaa">
+	<!--<div ng-controller="Aaa" ng-include="'temp.html'">-->
+		<!--<div ng-class="{red:true}">{{text}}</div>-->
+		<!--<div ng-style="{color:'red',background:'yellow'}">{{text}}</div>-->
+		<!--<div ng-style="{{style}}">{{text}}</div>
+		<a ng-href="{{surl}}">{{text}}</a>-->
+		<!--<input type="checkbox" ng-model="btn"/>-->
+		<!--<div ng-show="btn">aaaaaaaaa</div>-->
+		<!--<div ng-if="btn">aaaaaaaaa</div>-->
+		<!--<div ng-switch on="btn">
+			<p ng-switch-default>默认效果是true</p>
+			<p ng-switch-when="false">切换的效果是假</p>
+		</div>-->
+		
+		<!--<details ng-open="btn">加open就会显示信息 不加不会显示
+			<summary>我是一个带功能的标签</summary>
+			<p>1</p>
+			<p>2</p>
+			<p>3</p>
+			<p>4</p>
+			<p>5</p>
+		</details>-->
+		<!--<div ng-repeat="arrout in arr" ng-init="outindex=$index">
+			<div ng-repeat="arrinner in arrout" ng-init="innerindex=$index">
+				<p>{{arrinner}}:{{outindex}}{{innerindex}}</p>
+			</div>
+		</div>-->
+		<input type="text" ng-model="text" ng-model-options="{updateOn:'blur'}">
+		<div>{{text}}</div>
+	</div>
+</body>
+</html>
